@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Result</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/css/main.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+		<noscript><link rel="stylesheet" href="static/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>문장 검증 결과</h1>
+						<p>모욕 문장일 가능성을 보여줍니다.</p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+
+								<!-- Text -->
+									<section>
+										<h2 style="color:rgb(8, 13, 53);">1. 검증 결과</h2>
+										
+										<div class="c100 p{{ guilty[1]|round|int }} green">
+											<span>{{ guilty[1] }}%</span>
+											<div class="slice">
+											<div class="bar"></div>
+											<div class="fill"></div>
+											</div>
+										</div>
+										
+										
+										<div style="padding-left: 150px">
+											❝ <span style="color:rgb(156, 158, 156)">{{ text }}</span> ❞ <br>
+											해당 문장은 모욕죄 <span style="color:rgb(239, 102, 102)">{{ guilty[0] }}</span> 일 확률이 <span class="bolded" style="color:rgb(239, 102, 102)">{{ guilty[1] }}% </span>입니다.
+											<br><br>
+											모욕죄는 공연히 사람을 모욕함으로써 성립하는 범죄(형법 제311조)입니다. 
+											특정한 대상의 사회적 평가를 저하시킬 만한 추상적인 판단이나 경멸적 감정(모욕 행위)을 여러 사람이 인식할 수 있는 상태(공연성)에서 표현하면 성립됩니다. 
+											이 외에도 모욕적인 표현을 하게 된 이유와 취지, 구체적인 표현방법 등 여러 요인을 종합적으로 고려해 판단됨을 유의하시길 바랍니다.
+											
+											<br>
+										</div>
+										
+										<hr />
+										<h2 style="color:rgb(8, 13, 53);">2. 유사한 모욕죄 판례</h2>
+																				
+										{% for c in cases %}
+											<h3>{{ c['title'] }}</h3>
+											<p> {{ c['whole_txt'][:100] }} ...</p>
+
+											<button id='btn{{ loop.index }}' onclick="alert_case('{{loop.index}}')" >전문 확인하기</button>
+											<script>
+												var btn = document.getElementById('btn' + '{{ loop.index }}');
+												btn.onclick = function() {
+													window.open( "/case?title=" + "{{ c['title'] }}");
+												}
+											</script>
+	
+											<hr />
+										{% endfor %}
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<section>
+						<h2>2023-1 졸업작품</h2>
+						<p>자연어처리 기법을 활용한 판례 기반 모욕 문장 검증 시스템</p>
+
+					</section>
+					<section>
+						<h2>만든이</h2>
+						<dl class="alt">
+							<dt>멤버</dt>
+							<dd>*** &bull; *** </dd>
+							<dt>지도교수</dt>
+							<dd>***</dd>
+						</dl>
+					</section>
+					<p class="copyright">&copy; LegalSong. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+				</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script>
+			<script src="static/js/jquery.scrollex.min.js"></script>
+			<script src="static/js/jquery.scrolly.min.js"></script>
+			<script src="static/js/browser.min.js"></script>
+			<script src="static/js/breakpoints.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<script src="static/js/main.js"></script>
+
+	</body>
+</html>

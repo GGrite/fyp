@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Legalsong</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/css/main.css" />
+		<noscript><link rel="stylesheet" href="static/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<span class="logo"><img src="images/logo.svg" alt="" /></span>  
+						
+						<h1>Welcome to LegalSong</h1>
+						<p>리걸송과 함께, <br /> 모든 사람의 가치와 명예를 존중하는 사회로 나아가시겠습니까? <br />							
+						</p>
+						<a href="#nav" class="button icon solid fa-arrow-down solo scrolly">Learn more</a>
+						
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" class="active">소개</a></li>
+							<li><a href="#first">문장 검증</a></li>
+							<li><a href="#second">비슷한 판례 검색</a></li>
+							<li><a href="#cta">About Us</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Introduction -->
+							<section id="intro" class="main">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>📝 문장의 모욕 여부를 검증합니다. </h2>
+										</header>
+										<p> 
+											✔️ 타인을 깎아내리는 악의적인 댓글을 차단하고 싶으신가요? <br>
+											✔️ SNS에 올라온 모욕적인 게시글 등으로 피해받고 계신가요? <br>
+											실제 모욕죄 판례를 기반으로 학습한 '리걸송'의 서비스는 <br>
+											모욕적인 문장을 탐지하고 관련 판례를 쉽게 찾을 수 있도록 도와줍니다. 
+										 </p>
+										<ul class="actions">
+											<li><a href="#first" class="button icon solid solo scrolly">START</a></li>
+										</ul>
+									</div>
+									<span class="image"><img src="static/css/images/example.png" alt="" /></span>
+								</div>
+							</section>
+
+						<!-- First Section -->
+							<section id="first" class="main special">
+								<header class="major">
+									<h2>모욕 검증 시스템</h2>
+									<h>문장을 입력하고 하단의 버튼을 누르면 모욕죄 검증 결과를 확인할 수 있습니다.</h>
+
+								</header>
+
+								<form method="get" action="/guilty">
+									<textarea name="inputtext" cols="30" rows="5"  placeholder="문장을 입력하세요." ></textarea>
+									<footer class="major">
+									<input type="submit" class="button primary" value="모욕 검증"/>									
+									</footer>
+								</form>
+							</section>
+
+						<!-- Second Section -->
+							<section id="second" class="main special">
+								<header class="major">
+									<h2>비슷한 판례 검색</h2>
+									입력된 문장과 유사한 모욕죄 판례 목록을 보여줍니다.
+									관련 판례를 확인해보세요. <br>
+									<h>문장을 입력하고 하단의 버튼을 눌러주세요</h>
+								</header>
+
+								<form method="get" action="/similar">
+									<textarea name="inputtext" cols="30" rows="5"  placeholder="문장을 입력하세요." ></textarea>
+									<footer class="major">
+									<input type="submit" class="button primary" value="유사 검색"/>									
+									</footer>
+								</form>
+							</section>
+
+						<!-- Get Started -->
+							<section id="cta" class="main special">
+								<header class="major">
+									<h2>'리걸송'은 이렇게 만들어졌습니다.</h2>
+									<h4>실제 모욕죄 판례를 기반으로 <br />
+										신뢰도 높은 딥러닝 모델을 예측 결과를 제공합니다.
+									</h4>
+								</header>
+								<ul class="statistics">
+									<li class="style1">
+										<span class="icon solid fa-code-branch"></span>
+										<strong>187</strong> 모욕죄 판례
+									</li>
+									<li class="style2">
+										<span class="icon fa-folder-open"></span>
+										<strong>1,122</strong> 데이터셋
+									</li>
+									<li class="style3">
+										<span class="icon solid fa-signal"></span>
+										<strong>NLP</strong> LSTM-based model
+									</li>
+									<li class="style4">
+										<span class="icon solid fa-laptop"></span>
+										<strong>Euclidean</strong> 유사도
+									</li>
+								</ul>
+								<p class="content"> 참고: 모욕죄는 공연히 사람을 모욕함으로써 성립하는 범죄(형법 제311조)입니다. 
+									1년 이하의 징역이나 금고 또는 200만원 이하의 벌금에 처하게 되며 피해자 등의 고소가 있어야 공소를 제기할 수 있습니다.
+									특정한 대상의 사회적 평가를 저하시킬 만한 추상적인 판단이나 경멸적 감정(모욕 행위)을 여러 사람이 인식할 수 있는 상태(공연성)에서 표현하면 성립됩니다. 
+									이 외에도 모욕적인 표현을 하게 된 이유와 취지, 구체적인 표현방법 등 여러 요인을 종합적으로 고려해 판단됨을 유의하시길 바랍니다.</p>
+								<footer class="major">
+									<ul class="actions special">
+										<li><a href="#first" class="button scrolly">시작하기</a></li>
+									</ul>
+								</footer>
+							</section>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<h2>2023-1 졸업작품</h2>
+							<p>자연어처리 기법을 활용한 판례 기반 모욕 문장 검증 시스템</p>
+						</section>
+						<section>
+							<h2>만든이</h2>
+							<dl class="alt">
+								<dt>멤버</dt>
+								<dd>***&bull; *** </dd>
+								<dt>지도교수</dt>
+								<dd>***</dd>
+							</dl>
+						</section>
+						<p class="copyright">&copy; LegalSong. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script>
+			<script src="static/js/jquery.scrollex.min.js"></script>
+			<script src="static/js/jquery.scrolly.min.js"></script>
+			<script src="static/js/browser.min.js"></script>
+			<script src="static/js/breakpoints.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<script src="static/js/main.js"></script>
+
+	</body>
+</html>
