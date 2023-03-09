@@ -57,21 +57,24 @@
 										
 										<hr />
 										<h2 style="color:rgb(8, 13, 53);">2. 유사한 모욕죄 판례</h2>
-																				
-										{% for c in cases %}
-											<h3>{{ c['title'] }}</h3>
-											<p> {{ c['whole_txt'][:100] }} ...</p>
+											
+										{% if guilty[1] < 1 %}
+											<p> 검색 결과가 없습니다. </p>
+										{% else %}
+											{% for c in cases %}
+												<h3>{{ c['title'] }}</h3>
+												<p> {{ c['whole_txt'][:100] }} ...</p>
+												<button id='btn{{ loop.index }}' onclick="alert_case('{{loop.index}}')" >전문 확인하기</button>
+												<script>
+													var btn = document.getElementById('btn' + '{{ loop.index }}');
+													btn.onclick = function() {
+														window.open( "/case?title=" + "{{ c['title'] }}");
+													}
+												</script>
+												<hr />
+											{% endfor %}
+										{% endif %}
 
-											<button id='btn{{ loop.index }}' onclick="alert_case('{{loop.index}}')" >전문 확인하기</button>
-											<script>
-												var btn = document.getElementById('btn' + '{{ loop.index }}');
-												btn.onclick = function() {
-													window.open( "/case?title=" + "{{ c['title'] }}");
-												}
-											</script>
-	
-											<hr />
-										{% endfor %}
 
 							</section>
 
@@ -90,7 +93,7 @@
 							<dt>멤버</dt>
 							<dd>*** &bull; *** </dd>
 							<dt>지도교수</dt>
-							<dd>*** </dd>
+							<dd>***</dd>
 						</dl>
 					</section>
 					<p class="copyright">&copy; LegalSong. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>

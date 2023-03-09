@@ -1,6 +1,8 @@
 from konlpy.tag import Okt
 from sklearn.feature_extraction.text import TfidfVectorizer
 import scipy as sp
+# from sklearn.metrics.pairwise import cosine_similarity
+
 
 def get_dist(v1, v2): # Euclidean 
     delta = v1 - v2
@@ -9,7 +11,7 @@ def get_dist(v1, v2): # Euclidean
 
 def similar_case(input_txt, X, vectorizer, num_insult):
     okt = Okt()
-    input_tokens = [okt.morphs(row) for row in input_txt] # morphs(row) nouns
+    input_tokens = [okt.morphs(row) for row in input_txt] # morphs(row) 형태소 결과만, nouns
 
     input_for_vec = []
     for tokens in input_tokens:
@@ -31,14 +33,16 @@ def similar_case(input_txt, X, vectorizer, num_insult):
     for i in range(0, num_insult):
         post_vec = X.getrow(i)
         d = get_dist(post_vec, input_vec)
-        
-        # print('== Post %i with dist=%.2f : %s' %(i,d,insult_texts[i]))
+
         if d < best_dist: 
             best_dist = d
             best_i = i
         
         if d < 1:
             similar_list.append((d,i))
+    
+    if len(similar_list)==0:
+        similar_list.append((best_dist,best_i))
 
     result = [best_i, similar_list]
             
