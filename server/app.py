@@ -6,7 +6,7 @@ from pandas import DataFrame
 
 from konlpy.tag import Okt
 from sklearn.feature_extraction.text import TfidfVectorizer
-import text_similarity
+import cosine_similarity
 import lstm_predict
 # from bert_classifier import BERTClassifier
 # import bert_classifier
@@ -29,13 +29,13 @@ def is_guilty():
     guilty = lstm_predict.sentiment_predict(input_txt)
     # result = classifier.is_guilty(input_txt)
 
-    sim_result = text_similarity.similar_case([input_txt] , X, vectorizer, num_insult)
+    sim_result = cosine_similarity.similar_case([input_txt] , X, vectorizer, num_insult)
     best_i = sim_result[0]
     similar_list = sim_result[1]
-    similar_list.sort(key=lambda x: x[0]) 
+    # similar_list.sort(key=lambda x: x[0]) 
 
     cases = []
-    for distance,index in similar_list[:10]:
+    for distance,index in similar_list:  # [:10]
         cases.append({"title":insult_titles[index], "whole_txt":whole_txt[index]})
     if len(similar_list) == 0:
         cases.append({"title":insult_titles[best_i], "whole_txt":whole_txt[best_i]})
@@ -47,13 +47,13 @@ def is_guilty():
 @app.route('/similar')
 def similar_cases():
     input_txt = [request.args.get('inputtext')] 
-    result = text_similarity.similar_case(input_txt, X, vectorizer, num_insult)
+    result = cosine_similarity.similar_case(input_txt, X, vectorizer, num_insult)
     best_i = result[0]
     similar_list = result[1]
-    similar_list.sort(key=lambda x: x[0]) 
+    # similar_list.sort(key=lambda x: x[0]) 
 
     cases = []
-    for distance,index in similar_list[:10]:
+    for distance,index in similar_list:  # [:10]
         cases.append({"title":insult_titles[index], "whole_txt":whole_txt[index]})
     if len(similar_list) == 0:
         cases.append({"title":insult_titles[best_i], "whole_txt":whole_txt[best_i]})
@@ -94,7 +94,7 @@ for tokens in tokens_all : # tokens_noun:
 
 vectorizer = TfidfVectorizer(min_df = 1, decode_error='ignore')
 X = vectorizer.fit_transform(insult_vec)
-X.toarray().transpose()
+# X.toarray().transpose()
 num_insult, num_features = X.shape
 
 print("finish vectorizing all cases : ", start-time.time())
