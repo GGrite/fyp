@@ -8,9 +8,9 @@ Getting an idea from sentiment analysis, we labeled each case as guilty or innoc
 ## Dataset
 Crawled judgment documents related to insult law from [CaseNote](https://casenote.kr/) and [LegalSearch](https://legalsearch.kr/) using <img src="https://img.shields.io/badge/Selenium-43B02A?style=flat&logo=Selenium&logoColor=white"/> <br>
 Then, extracted the insult sentences from each case and labeled them as guilty or innocent.
-* Guilty 152, Innocent 35
+* Guilty 152, Innocent 35 → Guilty 760, Innocent 760
 * Added the Korean SNS dataset(AI hub) as innocent case to address class imbalance.
-* Text augmentation using [ktextaug](https://github.com/jucho2725/ktextaug) : Guilty 760, Innocent 760
+* Text augmentation using [ktextaug](https://github.com/jucho2725/ktextaug)
 
 ## Classification
 Logistic Regression, LSTM, Transformer <br>
